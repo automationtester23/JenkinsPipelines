@@ -2,7 +2,7 @@ try{
     node{
         stage("Print Hello Word"){
             println("Sumedh Shinde")
-            sh 'sumedh'
+            echo 'Sumedh Shinde Rocks'
         }
     }
 }
