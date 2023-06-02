@@ -1,8 +1,6 @@
-try{
-    node{
-        stage("Print Hello Word")
+
+node{
+    stage("Print Hello Word"){
+        println("Sumedh Shinde")
     }
-}
-catch(Exception e){
-    println(e.getMessages)
 }
