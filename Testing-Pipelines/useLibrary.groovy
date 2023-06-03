@@ -1,7 +1,7 @@
 @Library("shared-library") _
 def config =[]
 try{
-    node{
+    node("slave01"){
         stage("use helloWorld.groovy library Function"){
             config = [name: NAME,dayOfWeek: DAYOFWEEK]
             helloWorld(config)

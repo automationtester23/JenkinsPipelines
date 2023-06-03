@@ -1,5 +1,5 @@
 try{
-    node{
+    node("slave01"){
         stage("Print Hello Word"){
             println("Sumedh Shinde")
             echo 'Sumedh Shinde Rocks'

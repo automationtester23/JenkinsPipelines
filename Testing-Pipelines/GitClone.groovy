@@ -1,6 +1,6 @@
 def repo_url
 try{
-    node{
+    node("slave01"){
         try{
             stage('Create a Directory'){
                 sh 'mkdir -p GitClone'
