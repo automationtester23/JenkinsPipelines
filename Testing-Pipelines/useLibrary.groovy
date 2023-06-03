@@ -3,7 +3,7 @@ def config =[]
 try{
     node{
         stage("use helloWorld.groovy library Function"){
-            config = [name: 'sumedh',dayOfWeek: "Saturday"]
+            config = [name: NAME,dayOfWeek: DAYOFWEEK]
             helloWorld(config)
         }
     }

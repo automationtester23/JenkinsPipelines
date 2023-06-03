@@ -1,3 +1,4 @@
+def repo_url
 try{
     node{
         try{
@@ -13,8 +14,12 @@ try{
         try{
             stage('git clone'){
                 dir('GitClone'){
-                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'git@github.com:automationtester23/APIDesigns.git']]])
+                    repo_url = env.GITBASEURL+"/"+REPO_NAME+".git"
+                    echo "The URL of Repository to be checkout is " + repo_url
+                    echo "The branch to be checkout is " + BRANCH
+                    checkout([$class: 'GitSCM', branches: [[name: BRANCH]], userRemoteConfigs: [[url: repo_url ]]])
                 }
+                sh 'cd GitClone;ls -lrtha'
             }
         }
         catch(Exception e){
