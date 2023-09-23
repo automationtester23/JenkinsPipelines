@@ -21,11 +21,12 @@ def customInterpolateWithAngleBrackets(String input, Map<String, Object> variabl
     return result
 }
 def err //to handle customized error
+def base_path
 try{
     println("inside 1st try")
     node("master"){
         stage("git clone"){
-            def base_path="${BASE_PATH}jenkins/${JOB_NAME}"
+            base_path="${BASE_PATH}jenkins/${JOB_NAME}"
             sh("mkdir -p ${base_path}")
             dir(base_path){
                 def repo_url= "${env.GITBASEURL}/JenkinsPipelines.git"
@@ -36,6 +37,20 @@ try{
                 ])
             sh('ls -lrth')
             }
+        }
+        try{
+            println("inside 2nd catch")
+            stage("YAML file"){
+                def yaml_file = "${base_path}/Testing-Pipelines/yaml_files/build.yaml"
+
+                def data = readYaml file: yaml_file
+                println(data)
+            }
+
+        }catch(Exception ex){
+            println("Inside 2nd catch")
+            err = "2nd catch errr"
+            println("2nd catch : ${ex.getMessage()}")
         }
         try{
             println("inside 2nd try")

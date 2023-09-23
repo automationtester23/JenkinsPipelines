@@ -9,4 +9,4 @@ build-release:
     locality: "pune"
     sports: "kabaddi"
   script:
-    - echo "name : <name>, address : <address>, locality: <locality>, sports: <sports>"
+    - echo "name = <name>, address = <address>, locality= <locality>, sports= <sports>"
