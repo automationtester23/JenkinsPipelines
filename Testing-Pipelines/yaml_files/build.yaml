@@ -4,9 +4,9 @@ variables:
 build-release:
   tag: build
   variables:
-    name: "sumedh shinde"
-    address: "ahemadnagar"
+    name: "sachin tendulakar"
+    address: "mumbai"
     locality: "pune"
-    sports: "kabaddi"
+    sports: "cricket"
   script:
     - echo "name = <name>, address = <address>, locality= <locality>, sports= <sports>"

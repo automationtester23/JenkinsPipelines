@@ -22,6 +22,8 @@ def customInterpolateWithAngleBrackets(String input, Map<String, Object> variabl
 }
 def err //to handle customized error
 def base_path
+def varibleMap
+def script
 try{
     println("inside 1st try")
     node("master"){
@@ -44,7 +46,11 @@ try{
                 def yaml_file = "${base_path}/Testing-Pipelines/yaml_files/build.yaml"
 
                 def data = readYaml file: yaml_file
-                println(data)
+                varibleMap = data['build-release']['variables']
+                script= data['build-release']['script'] 
+
+                println("varibleMap : ${varibleMap}")
+                println("script : ${script}")
             }
 
         }catch(Exception ex){
@@ -56,8 +62,10 @@ try{
             println("inside 2nd try")
             stage("test"){
                 // Example usage
-                def input = "Hello, <name>! Today is <day>."
-                def variables = ["name": "Alice", "day": "Monday"]
+                //def input = "Hello, <name>! Today is <day>."
+                //def variables = ["name": "Alice", "day": "Monday"]
+                def input= script.toString()
+                def variables= varibleMap
                 def interpolatedString = customInterpolateWithAngleBrackets(input, variables)
                 println(interpolatedString)
             }
