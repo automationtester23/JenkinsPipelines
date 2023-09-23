@@ -1,0 +1,12 @@
+variables:
+  build-pipeline: JENKINS_JOB_1
+
+build-release:
+  tag: build
+  variables:
+    name: "sumedh shinde"
+    address: "ahemadnagar"
+    locality: "pune"
+    sports: "kabaddi"
+  script:
+    - echo "name : <name>, address : <address>, locality: <locality>, sports: <sports>"

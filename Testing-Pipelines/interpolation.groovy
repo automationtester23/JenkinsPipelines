@@ -25,7 +25,7 @@ try{
     println("inside 1st try")
     node("master"){
         stage("git clone"){
-            def base_path="${BASE_PATH}/jenkins/${JOB_NAME}"
+            def base_path="${BASE_PATH}jenkins/${JOB_NAME}"
             sh("mkdir -p ${base_path}")
             dir(base_path){
                 def repo_url= "${env.GITBASEURL}/JenkinsPipelines.git"
