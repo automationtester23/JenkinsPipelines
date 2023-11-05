@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sumedh-devops-jenkins-pv
+  namespace: sumedh-devops
+spec:
+  capacity:
+    storage: 30Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: standard-rwx # Use your desired storage class
+  hostPath:
+    path: /Users/sumedhshinde/kubernetes-jenkins-persistent-data

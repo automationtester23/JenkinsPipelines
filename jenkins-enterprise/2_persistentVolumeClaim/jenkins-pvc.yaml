@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sumedh-devops-jenkins-pvc
+  namespace: sumedh-devops
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 30Gi
+  storageClassName: standard-rwx
+  volumeMode: Filesystem
+  volumeName: sumedh-devops-jenkins-pv
